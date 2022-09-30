@@ -1,0 +1,1 @@
+export const consumet = "https://consumet-api.herokuapp.com";
