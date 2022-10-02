@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {getAnimeTopAiring, getLatestUpdate} from '../../services/AnimeService';
+import { Link } from "react-router-dom";
 
 const Home = () => {
     const [topAiring, setTopAiring] = useState([]);
@@ -28,7 +29,9 @@ const Home = () => {
                         {
                             topAiring.map((value, index)=>{
                                 // const rank = index++;
-                                return (<div
+                                return (
+                                <Link
+                                to={`/info/${value?.id}`} 
                                 key={index}
                                 className="flex flex-nowrap lg:ml-5 md:ml-5 ml-3 "
                                 >
@@ -42,7 +45,7 @@ const Home = () => {
                                             </div>
                                         </div>
                                     </div>
-                                </div>);
+                                </Link>);
                             })
                         }
                     
