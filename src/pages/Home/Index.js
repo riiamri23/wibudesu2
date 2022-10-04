@@ -26,7 +26,7 @@ const Home = () => {
                     <div
                         className="flex overflow-x-scroll pb-10 hide-scroll-bar"
                     >
-                        {
+                        { topAiring.length > 0 ?
                             topAiring.map((value, index)=>{
                                 // const rank = index++;
                                 return (
@@ -46,7 +46,7 @@ const Home = () => {
                                         </div>
                                     </div>
                                 </Link>);
-                            })
+                            }) : <>Loading..</>
                         }
                     
                 </div>
@@ -58,7 +58,7 @@ const Home = () => {
                         className="flex pb-10 hide-scroll-bar"
                     >
 
-                        {
+                        { topAiring.length > 0 ?
                             latestUpdate.map((value, index)=>{
                                 // const rank = index++;
                                 return (<div
@@ -76,7 +76,7 @@ const Home = () => {
                                         </div>
                                     </div>
                                 </div>);
-                            })
+                            }):<>Loading..</>
                         }
                     </div>
 
