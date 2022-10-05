@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {getAnimeTopAiring, getLatestUpdate} from '../../services/AnimeService';
-import { Link } from "react-router-dom";
+import Highlight from '../../components/Highlight';
+import LatestEpisodes from '../../components/LatestEpisodes';
 
 const Home = () => {
     const [topAiring, setTopAiring] = useState([]);
@@ -19,68 +20,11 @@ const Home = () => {
         fetchlatestUpdate();
     }, []);
     return(
-        <div className="container">
+        <div className="container m-auto">
             {/* TOP AIRING */}
-            <div>
-                <h1>Top Airing</h1>
-                    <div
-                        className="flex overflow-x-scroll pb-10 hide-scroll-bar"
-                    >
-                        { topAiring.length > 0 ?
-                            topAiring.map((value, index)=>{
-                                // const rank = index++;
-                                return (
-                                <Link
-                                to={`/info/${value?.id}`} 
-                                key={index}
-                                className="flex flex-nowrap lg:ml-5 md:ml-5 ml-3 "
-                                >
-                                    <div className="inline-block px-3">
-                                        <div
-                                        className="w-64 max-w-lg overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
-                                        >
-                                            <img src={value.image} alt={value.id} />
-                                            <div>
-                                                <h3>{value.title}</h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Link>);
-                            }) : <>Loading..</>
-                        }
-                    
-                </div>
-            </div>
-            {/* TOP AIRING */}
-            <div>
-                <h1>Latest Updates</h1>
-                    <div
-                        className="flex pb-10 hide-scroll-bar"
-                    >
-
-                        { topAiring.length > 0 ?
-                            latestUpdate.map((value, index)=>{
-                                // const rank = index++;
-                                return (<div
-                                key={index}
-                                className="flex lg:ml-5 md:ml-5 ml-3"
-                                >
-                                    <div className="px-3">
-                                        <div
-                                        className="w-64 max-w-lg overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
-                                        >
-                                            <img src={value.image} alt={value.id} />
-                                            <div>
-                                                <h3>{value.title}</h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>);
-                            }):<>Loading..</>
-                        }
-                    </div>
-
-            </div>
+            { topAiring.length > 0 ? <Highlight data={topAiring} /> : <>Loading..</>}
+            {/* LATEST EPISODES */}
+            {latestUpdate.length > 0 ? <LatestEpisodes data={latestUpdate} /> : <>Loading..</>}
         </div>
         
     );
