@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const LatestEpisodes = ({data}) =>{
     return (
-        <div className="flex-row space-x-4 2xl:flex my-3">
-            <div className="2xl:basis-9/12">
+        <div className="flex-row space-x-4 flex my-3">
+            <div className="basis-full">
                 <div className="z-50 space-y-8 rounded-3xl bg-white p-8">
                     <p className="text-3xl font-bold text-gray-700 antialiased">Latest Episodes</p>
                     <div className="grid xl:grid-cols-6 md:grid-cols-4 gap-2 sm:grid-cols-2">

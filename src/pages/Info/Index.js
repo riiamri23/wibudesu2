@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getAnimeInfo } from "../../services/AnimeService";
 import { Link, useParams } from "react-router-dom";
+import Navbar from '../../components/navbar/Index';
 
 const Info = () => {
     const [info, setInfo] = useState();
@@ -13,31 +14,37 @@ const Info = () => {
         }
         fetchAnimeInfo();
     }, [params]);
-    return(<div className="container">
-        {
-            info && (
-                <>
-                    <div className="flex w-full">
-                        <div className="p-4"><img src={info?.image} alt={info?.id} /></div>
-                        <div className="p-4">
-                            <h2>{info?.title}</h2>
-                            <span>{info?.otherName}</span>
-                            <span className="info-content block">
-                                <span>Status : {info?.status}</span>
-                                <span>Released : {info?.releaseDate}</span>
-                                <span>type : {info?.type}</span>
-                                <span>total Episodes : {info?.totalEpisodes}</span>
-                                <span>description : {info?.description}</span>
-                            </span>
-                            <Genre genres={info?.genres} />
+    return(
+    
+    <>
+        <Navbar />
+        <div className="container">
+            {
+                info && (
+                    <>
+                        <div className="flex w-full">
+                            <div className="p-4"><img src={info?.image} alt={info?.id} /></div>
+                            <div className="p-4">
+                                <h2>{info?.title}</h2>
+                                <span>{info?.otherName}</span>
+                                <span className="info-content block">
+                                    <span>Status : {info?.status}</span>
+                                    <span>Released : {info?.releaseDate}</span>
+                                    <span>type : {info?.type}</span>
+                                    <span>total Episodes : {info?.totalEpisodes}</span>
+                                    <span>description : {info?.description}</span>
+                                </span>
+                                <Genre genres={info?.genres} />
+                            </div>
                         </div>
-                    </div>
-                    <ListEps episodes={info?.episodes} />
-                </>
-            )
-        }
-        
-    </div>);
+                        <ListEps episodes={info?.episodes} />
+                    </>
+                )
+            }
+            
+        </div>
+    </>
+    );
 }
 
 const Genre = ({genres}) =>(<span className="info-genre">{genres.map((value, index)=>(<span key={index}>{value}</span>))}</span> );

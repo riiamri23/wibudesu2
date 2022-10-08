@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { getAnimeWatch } from "../../services/AnimeService";
 import { useParams } from "react-router-dom";
+import Navbar from '../../components/navbar/Index';
 
 const Watch = () => {
     const [watch, setWatch] = useState();
@@ -16,26 +17,30 @@ const Watch = () => {
         }
         fetchAnimeWatch();
     }, [params]);
-    return(<div className="container">
-        {watch && (
-            <>
-                <div className="flex w-full">
-                <div id="video-player" className="w-full max-w-3xl">
-                    <iframe
-                    title="video player"
-                    width={1024}
-                    height={576}
-                    src={watch.headers.Referer}
-                    frameBorder="0"
-                    allowFullScreen
-                    mozallowfullscreen="true"
-                    webkitallowfullscreen="true"
-                    ></iframe>
-                </div>
-                </div>
-            </>
-        )}
-    </div>);
+    return(
+    <>
+        <Navbar />
+        <div className="container">
+            {watch && (
+                <>
+                    <div className="flex w-full">
+                    <div id="video-player" className="w-full max-w-3xl">
+                        <iframe
+                        title="video player"
+                        width={1024}
+                        height={576}
+                        src={watch.headers.Referer}
+                        frameBorder="0"
+                        allowFullScreen
+                        mozallowfullscreen="true"
+                        webkitallowfullscreen="true"
+                        ></iframe>
+                    </div>
+                    </div>
+                </>
+            )}
+        </div>
+    </>);
 }
 
 export default Watch;

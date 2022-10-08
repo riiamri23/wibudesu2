@@ -1,6 +1,8 @@
 
 import Toggle from '../theme/ThemeToggle';
 
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
     return (
         <header className="mb-20">
@@ -9,9 +11,9 @@ const Navbar = () => {
                 fixed top-0 left-0 right-0 z-10">
 
                 <div className="flex items-center">
-                    <a className="cursor-pointer" href="/">
+                    <Link className="cursor-pointer" to={`/`}>
                         Wibudesu
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="items-center hidden space-x-8 lg:flex">
