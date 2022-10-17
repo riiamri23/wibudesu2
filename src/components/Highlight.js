@@ -27,6 +27,10 @@ const Highlight = ({data}) =>{
         // setInext(curr+1 >= data.length - 1 ? 0 : curr+1);
         // setInext2(curr+2 >= data.length - 1 ? 0 : curr+2);
     // }
+
+    const handleonClick = ()=>{
+        console.log('hello');
+    }
     
     return (
         <div style={{boxShadow: "black 0px 0px 13em 3em inset", backgroundImage: `url(${data[index].image})`}} className="flex h-80 w-full flex-row items-end rounded-3xl bg-cover bg-center transition-all duration-500 ease-in-out md:h-72 lg:h-80 my-4">
@@ -49,7 +53,12 @@ const Highlight = ({data}) =>{
                 <div className="flex flex-row items-center space-x-6 rounded-l-3xl bg-white/30 p-5 backdrop-blur-xl backdrop-brightness-150 transition-all">
                     <img className="aspect-[16/9] w-32 animate-pulse cursor-pointer rounded-xl object-cover transition hover:scale-105" src={data[inext].image} alt={data[inext.id]} />
                     <img className="aspect-[16/9] w-32 cursor-pointer rounded-xl object-cover transition hover:scale-105" src={data[inext2].image} alt={data[inext2.id]} />
-                    <div className="cursor-pointer rounded-full bg-white p-2 shadow-xl shadow-indigo-200 transition hover:bg-gray-200" onClick={(e)=>console.log('hello')}>
+                    <div className="cursor-pointer rounded-full bg-white p-2 shadow-xl shadow-indigo-200 transition hover:bg-gray-200" onClick={(e)=>{
+                        const curr = index === data.length - 1 ? 0 : index+1;
+                        setIndex(curr);
+                        setInext(curr+1 >= data.length - 1 ? 0 : curr+1);
+                        setInext2(curr+2 >= data.length - 1 ? 0 : curr+2);
+                    }}>
                         <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-800" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </div>
                 </div>
