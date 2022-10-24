@@ -27,10 +27,6 @@ const Highlight = ({data}) =>{
         // setInext(curr+1 >= data.length - 1 ? 0 : curr+1);
         // setInext2(curr+2 >= data.length - 1 ? 0 : curr+2);
     // }
-
-    const handleonClick = ()=>{
-        console.log('hello');
-    }
     
     return (
         <div style={{boxShadow: "black 0px 0px 13em 3em inset", backgroundImage: `url(${data[index].image})`}} className="flex h-80 w-full flex-row items-end rounded-3xl bg-cover bg-center transition-all duration-500 ease-in-out md:h-72 lg:h-80 my-4">
