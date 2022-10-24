@@ -49,21 +49,21 @@ const Watch = () => {
                             </div> */}
                         </div>
                     </div>
-                    <div className="flex w-full">
-                        <div id="video-player" className="w-full">
-                            <iframe
-                            className="m-auto w-full"
-                            title="video player"
-                            height={576}
-                            src={watch.headers.Referer}
-                            frameBorder="0"
-                            allowFullScreen
-                            mozallowfullscreen="true"
-                            webkitallowfullscreen="true"
-                            ></iframe>
-                        </div>
+                    <div id="video-player" className="flex w-full aspect-w-16 aspect-h-9">
+                        <iframe
+                        className="m-auto"
+                        title="video player"
+                        src={watch.headers.Referer}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        mozallowfullscreen="true"
+                        webkitallowfullscreen="true"
+                        />
                     </div>
-
+                    <div id="link-download">
+                        
+                    </div>
                     <div className="react-tabs mt-4" data-rttabs="true">
                         {/* <ul className="mb-8 grid grid-cols-3 items-end gap-2 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-4 3xlc:grid-cols-6" role="tablist">
                             <li className="w-28 cursor-pointer rounded-full bg-indigo-500 py-1 px-3 text-center font-semibold text-white shadow-md shadow-indigo-200 transition-all hover:bg-indigo-600 react-tabs__tab--selected" role="tab" id="react-tabs-2" aria-selected="true" aria-disabled="false" aria-controls="react-tabs-3" tabindex="0" data-rttab="true">1 - 28</li>

@@ -28,10 +28,10 @@ const Navbar = () => {
                         Anime
                     </a>
 
-                    <a className="flex text-gray-600 hover:text-blue-500
-                        cursor-pointer transition-colors duration-300" href="/">
+                    <Link className="flex text-gray-600 hover:text-blue-500
+                    cursor-pointer transition-colors duration-300" to={`/manga`}>
                         Manga
-                    </a>
+                    </Link>
 
                     <a className="flex text-gray-600 hover:text-blue-500
                         cursor-pointer transition-colors duration-300" href="/">

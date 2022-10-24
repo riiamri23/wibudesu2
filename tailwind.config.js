@@ -7,5 +7,7 @@ module.exports = {
     // fontFamily: {'body': ['"Poppins"','"Open Sans"', '"Segoe UI"', '"Roboto"'],},
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+  ],
 };
