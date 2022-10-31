@@ -19,8 +19,11 @@ export default function RouterApp() {
             <Route path="/info/:name" element={<Info />} />
             <Route path="/watch/:name" element={<Watch />} />
             <Route path="/manga" element={<MangaList />} >
-                <Route path="info" element={<MangaInfo />} />
-                <Route path="read" element={<MangaRead />} />
+                {/* <Route path=":id"> */}
+                
+                    <Route index path="info/:id" element={<MangaInfo />} />
+                    <Route path="read" element={<MangaRead />} />
+                {/* </Route> */}
             </Route>
             <Route path="*" element={<NotFound/>}/>
         </Routes>
