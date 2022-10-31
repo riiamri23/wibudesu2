@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import {getAnimeTopAiring, getLatestUpdate} from '../../services/AnimeService';
-import Highlight from '../../components/Highlight';
-import LatestEpisodes from '../../components/LatestEpisodes';
-import Navbar from '../../components/navbar/Index';
+import {getAnimeTopAiring, getLatestUpdate} from '../../../services/AnimeService';
+import Highlight from '../../../components/Highlight';
+import LatestEpisodes from '../../../components/LatestEpisodes';
+import Navbar from '../../../components/navbar/Index';
 
 const Home = () => {
     const [topAiring, setTopAiring] = useState([]);

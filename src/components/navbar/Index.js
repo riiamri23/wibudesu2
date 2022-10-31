@@ -1,6 +1,6 @@
 
 import Toggle from '../theme/ThemeToggle';
-
+// import { FaSearch } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -45,6 +45,10 @@ const Navbar = () => {
                 </div>
 
                 <div className="flex items-center space-x-5">
+                    
+                    {/* <FaSearch
+                        className="text-gray-500 dark:text-gray-400 text-2xl cursor-pointer"
+                    /> */}
                     <a className="flex text-gray-600 
                         cursor-pointer transition-colors duration-300
                         font-semibold hover:text-blue-600" href="/">

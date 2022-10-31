@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Home from '../pages/Home/Index';
-import Info from '../pages/Info/Index';
-import Watch from '../pages/Watch/Index';
+import Home from '../pages/Anime/Home/Index';
+import Info from '../pages/Anime/Info/Index';
+import Watch from '../pages/Anime/Watch/Index';
 
 import MangaList from '../pages/Manga/List/Index';
 import MangaInfo from '../pages/Manga/Info/Index';
