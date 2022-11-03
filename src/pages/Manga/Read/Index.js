@@ -12,8 +12,8 @@ import { getMangaImage, getMangaRead } from '../../../services/MangaService';
 //     </div>
 // );
 
-const fetchMangaImage = async ()=>{
-    const response = await getMangaImage('');
+const fetchMangaImage = async (url)=>{
+    const response = await getMangaImage(url);
    console.log(response);
     return await response;
 }
@@ -28,7 +28,8 @@ const MangaRead = () => {
         const fetchMangaRead = async () =>{
             const response = await getMangaRead(id);
             const dataRes = await Promise.all(response.map(async (val)=>{
-                const imageData = await fetchMangaImage();
+
+                const imageData = await fetchMangaImage(val.img);
                 return {
                     ...val,
                     imageData
