@@ -3,6 +3,7 @@ import Home from '../pages/Anime/Home/Index';
 import Info from '../pages/Anime/Info/Index';
 import Watch from '../pages/Anime/Watch/Index';
 
+import Manga from '../pages/Manga/index';
 import MangaList from '../pages/Manga/List/Index';
 import MangaInfo from '../pages/Manga/Info/Index';
 import MangaRead from '../pages/Manga/Read/Index';
@@ -15,13 +16,13 @@ export default function RouterApp() {
     return (
     <Router>
         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/info/:name" element={<Info />} />
-            <Route path="/watch/:name" element={<Watch />} />
-            <Route path="/manga" element={<MangaList />} >
+            <Route index element={<Home />} />
+            <Route path="info/:name" element={<Info />} />
+            <Route path="watch/:name" element={<Watch />} />
+            <Route path="manga" element={<Manga />} >
                 {/* <Route path=":id"> */}
-                
-                    <Route index path="info/:id" element={<MangaInfo />} />
+                    <Route index element={<MangaList />}  />
+                    <Route path="info/:id" element={<MangaInfo />} />
                     <Route path="read" element={<MangaRead />} />
                 {/* </Route> */}
             </Route>
