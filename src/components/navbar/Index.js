@@ -49,12 +49,12 @@ const Navbar = () => {
                     {/* <FaSearch
                         className="text-gray-500 dark:text-gray-400 text-2xl cursor-pointer"
                     /> */}
-                    <a className="flex text-gray-600 
+                    {/* <a className="flex text-gray-600 
                         cursor-pointer transition-colors duration-300
                         font-semibold hover:text-blue-600" href="/">
 
                         Login
-                    </a>
+                    </a> */}
 
                     <Toggle />
                 </div>

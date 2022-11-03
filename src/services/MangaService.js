@@ -1,5 +1,5 @@
 import {consumet, consumetProxy} from '../constants/constants';
-import axios from 'axios';
+// import axios from 'axios';
 
 export async function getMangaList({query = ""}){
     try{
@@ -32,44 +32,44 @@ export async function getMangaRead(id){
 
 export async function getMangaImage(url){
     try{
+        // window.location='https://mangakakalot.com';
         let imgSrc = null;
-        const myHeaders = new Headers({
-            'content-type': 'image/jpeg',
-            "referer": "https://mangakakalot.com",
-
-        });
-        let cors = "no-cors";
+        // const myHeaders = new Headers({
+        //     'content-type': 'image/jpeg',
+        //     "proxy-referer": "https://mangakakalot.com/",
+        //     "Accept": "*/*",
+        //     "Accept-Encoding":"gzip, deflate, br",
+        //     "Connection":"keep-alive"
+        // });
+        // let cors = "cors";
         //https://v3.mkklcdnv6tempv2.com/img/tab_3/00/01/13/ln951470/chapter_100_4/1-o.jpg
         // const myRequest = new Request(`${consumetProxy}/https://v3.mkklcdnv6tempv2.com/img/tab_3/00/01/13/ln951470/chapter_101_1/1-o.jpg`, {
-        // const myRequest = new Request(`${consumetProxy}/https://v3.mkklcdnv6tempv2.com/img/tab_3/00/01/13/ln951470/chapter_100_4/1-o.jpg`, {
-        const myRequest = new Request(`${consumetProxy}/${url}`, {
-            headers: myHeaders,
-            referrer: 'https://mangakakalot.com',
-            mode: cors,
+        const myRequest = new Request(`${consumet}/utils/image-proxy?url=https://v3.mkklcdnv6tempv2.com/img/tab_3/00/01/13/ln951470/chapter_100_4/1-o.jpg&referer=https://mangakakalot.com`);
+        // const res = 
+        await fetch(myRequest)
+        .then((response) => {
+            return response.blob()
+        })
+        .then((myBlob) => {
+            imgSrc = URL.createObjectURL(myBlob);
         });
-        const res = await fetch(myRequest)
-        if(res.type === "opaque"){
-            cors = "cors";
-            // const myRequest = new Request(`${consumetProxy}/https://v3.mkklcdnv6tempv2.com/img/tab_3/00/01/13/ln951470/chapter_100_4/1-o.jpg`, {
-            const myRequest = new Request(`${consumetProxy}/${url}`, {
-                headers: myHeaders,
-                referrer: 'https://mangakakalot.com',
-                mode: cors,
-            });
-            await fetch(myRequest)
-            .then((response) => {
-                return response.blob()
-            })
-            .then((myBlob) => {
-                imgSrc = URL.createObjectURL(myBlob);
-            });
-        }
-        // .then((response) => {
-        //     return response.blob()
-        // })
-        // .then((myBlob) => {
-        //     imgSrc = URL.createObjectURL(myBlob);
-        // });
+        // if(res.type === "opaque"){
+
+        //     cors = "cors";
+        //     const myRequest = new Request(`${consumetProxy}/https://v3.mkklcdnv6tempv2.com/img/tab_3/00/01/13/ln951470/chapter_100_4/1-o.jpg`, {
+        //     // const myRequest = new Request(`${consumetProxy}/${url}`, {
+        //         headers: myHeaders,
+        //         referrer: 'https://mangakakalot.com',
+        //         mode: cors,
+        //     });
+        //     await fetch(myRequest)
+        //     .then((response) => {
+        //         return response.blob()
+        //     })
+        //     .then((myBlob) => {
+        //         imgSrc = URL.createObjectURL(myBlob);
+        //     });
+        // }
 
         return imgSrc;
     }catch(e){

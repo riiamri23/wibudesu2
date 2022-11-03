@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from '../../../components/navbar/Index';
 import { getMangaImage, getMangaRead } from '../../../services/MangaService';
+import {consumet, consumetProxy} from '../../../constants/constants';
 
 // const ListImage = ({imgs})=>(
 //     <div className="flex flex-col">
@@ -27,17 +28,20 @@ const MangaRead = () => {
     useEffect(()=>{
         const fetchMangaRead = async () =>{
             const response = await getMangaRead(id);
-            const dataRes = await Promise.all(response.map(async (val)=>{
+            const dataRes = await Promise.allSettled(response.map(async (val)=>{
 
                 const imageData = await fetchMangaImage(val.img);
                 return {
                     ...val,
                     imageData
                 }
-            }));
+            })).then(res => {
+                // console.log(res)
+                return res.map(val=>val.value);
+            });
             console.log(dataRes);
 
-            setData(dataRes);
+            setData(response);
 
         }
 
@@ -56,7 +60,7 @@ const MangaRead = () => {
                         // const test = await fetchMangaImage();
                         // console.log(test);
                         return <li>
-                            <img key={val?.id} src={val?.imageData} alt={val?.id} />
+                            <img key={val?.id} src={`${consumet}/utils/image-proxy?url=${val.img}&referer=https://mangakakalot.com`} alt={val?.id} />
                         </li>
                     })}
                     </ul>
