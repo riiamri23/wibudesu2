@@ -41,8 +41,8 @@ const MangaRead = () => {
 
             response.chapters.forEach((val, index)=>{
                 if(val.id === id){
-                    setNextManga(response.chapters[index+1]);
-                    setPrevManga(response.chapters[index-1]);
+                    setNextManga(response.chapters[index-1]);
+                    setPrevManga(response.chapters[index+1]);
                 }
             });
             // console.log(response);
