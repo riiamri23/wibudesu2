@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import Navbar from '../../../components/navbar/Index';
-import InfoAnime from '../../../components/InfoAnime';
+// import Navbar from '../../../components/navbar/Index';
+// import InfoAnime from '../../../components/InfoAnime';
 import { getMangaInfo } from "../../../services/MangaService";
 
 const ListChap = ({chapters})=>(
     <div className="flex flex-col">
         <ul>
             {
-                chapters.map((val, index)=><li><Link key={index} to={`/manga/read?id=${val.id}`}>{val.title}</Link></li>)
+                chapters.map((val, index)=><li className="flex"><Link key={index} to={`/manga/read?id=${val.id}`}>{val.title}</Link></li>)
             }
         </ul>
     </div>
