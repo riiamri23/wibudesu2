@@ -7,17 +7,8 @@ import { getMangaInfo, getMangaRead } from '../../../services/MangaService';
 import {consumet} from '../../../constants/constants';
 import { FaHamburger, FaWindowClose, FaHome, FaInfo, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
-// const ListImage = ({imgs})=>(
-//     <div className="flex flex-col">
-//         <ul>
-//             {}
-//         </ul>
-//     </div>
-// );
-
 const MangaRead = () => {
     const [data, setData] = useState();
-    // const [dataInfo, setDataInfo] = useState();
     const [fixedMenu, setFixedMenu] = useState();
     const [nextManga, setNextManga] = useState();
     const [prevManga, setPrevManga] = useState();
@@ -32,6 +23,7 @@ const MangaRead = () => {
 
     useEffect(()=>{
         const fetchMangaRead = async () =>{
+            setData([]);
             const response = await getMangaRead(id);
             setData(response);
         }
