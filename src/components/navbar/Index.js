@@ -41,6 +41,11 @@ const Navbar = () => {
                         Manga
                     </Link>
 
+                    <Link className="flex text-gray-600 hover:text-blue-500
+                    cursor-pointer transition-colors duration-300" to={`/lightnovel`}>
+                        Light Novel
+                    </Link>
+
                     <a className="flex text-gray-600 hover:text-blue-500
                         cursor-pointer transition-colors duration-300" href="/">
                         Wibunews
