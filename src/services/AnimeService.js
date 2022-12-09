@@ -9,9 +9,9 @@ export async function getAnimeTopAiring(){
     }
 }
 
-export async function getLatestUpdate(){
+export async function getLatestUpdate({page, type}){
     try{
-        const response = await fetch(`${consumet}/anime/gogoanime/recent-episodes`);
+        const response = await fetch(`${consumet}/anime/gogoanime/recent-episodes?page=${page}`);
         return await response.json();
     }catch(e){
         return e;

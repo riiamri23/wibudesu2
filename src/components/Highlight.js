@@ -47,8 +47,8 @@ const Highlight = ({data}) =>{
             </div>
             <div className="ml-auto py-12 xl:inline-flex hidden md:block">
                 <div className="flex flex-row items-center space-x-6 rounded-l-3xl bg-white/30 p-5 backdrop-blur-xl backdrop-brightness-150 transition-all">
-                    <img className="aspect-[16/9] w-32 animate-pulse cursor-pointer rounded-xl object-cover transition hover:scale-105" src={data[inext].image} alt={data[inext.id]} />
-                    <img className="aspect-[16/9] w-32 cursor-pointer rounded-xl object-cover transition hover:scale-105" src={data[inext2].image} alt={data[inext2.id]} />
+                    <Link to={`/info/${data[inext].id}`}><img className="aspect-[16/9] w-32 animate-pulse cursor-pointer rounded-xl object-cover transition hover:scale-105" src={data[inext].image} alt={data[inext].id} /></Link>
+                    <Link to={`/info/${data[inext2].id}`}><img className="aspect-[16/9] w-32 cursor-pointer rounded-xl object-cover transition hover:scale-105" src={data[inext2].image} alt={data[inext2].id} /></Link>
                     <div className="cursor-pointer rounded-full bg-white p-2 shadow-xl shadow-indigo-200 transition hover:bg-gray-200" onClick={(e)=>{
                         const curr = index === data.length - 1 ? 0 : index+1;
                         setIndex(curr);
