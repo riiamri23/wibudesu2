@@ -29,9 +29,6 @@ const MangaList = () => {
         }, 500)
     }
     return (<>
-        {/* List Manga */}
-        {/* {data.length > 0 ? <>list manga</> : <>Loading..</>} */}
-        {/* <MangaListing data={data} /> */}
         <div className="flex justify-center items-center p-6" id="mangasearch">
             <div className="flex bg-white p-4 w-96 space-x-4 rounded-lg">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -52,7 +49,7 @@ const MangaList = () => {
             <div className="basis-full">
                 <div className="z-50 space-y-8 rounded-3xl bg-white p-8">
                     {
-                        loading || data.length < 1 ? 
+                        loading || data?.length < 1 ? 
                         <>
                             <p className="text-3xl font-bold text-gray-700 antialiased">Please Search Something</p>
                             <div className="flex justify-center">
@@ -63,7 +60,7 @@ const MangaList = () => {
                         <>
                             <p className="text-3xl font-bold text-gray-700 antialiased">Manga List</p>
                             <div className="grid xl:grid-cols-6 md:grid-cols-4 gap-2 sm:grid-cols-3 grid-cols-2">
-                                {data.map((value, index)=>{
+                                {data?.map((value, index)=>{
                                     return (<Link key={index} to={`/manga/info/${value.id}`} style={{background:`url(${value.image}) no-repeat center center`,backgroundSize:`cover`}} className="flex aspect-[2/3] h-56 cursor-pointer flex-col rounded-3xl bg-cover transition hover:scale-105 hover:saturate-150 lg:h-72">
                                     <div className="grow p-4"></div>
                                     <div className="text-md w-full rounded-b-3xl bg-black/70 py-4 px-2 text-center font-medium text-white backdrop-opacity-50">

@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 import Navbar from '../../../components/navbar/Index';
 import { getMangaInfo, getMangaRead } from '../../../services/MangaService';
@@ -52,7 +52,7 @@ const MangaRead = () => {
                 <span className="text-2xl font-bold ">Manga Read</span>
                 <div className="flex flex-col">
                     <ul>
-                    {data.map((val, index)=>{
+                    {data?.map((val, index)=>{
                         // const test = await fetchMangaImage();
                         // console.log(test);
                         return <li key={index}>
