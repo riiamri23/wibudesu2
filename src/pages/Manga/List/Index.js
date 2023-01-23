@@ -37,7 +37,7 @@ const MangaList = () => {
                 <input className="bg-white outline-none w-full" type="text" placeholder="Search Manga on MangaKakalot" onChange={onSearch} />
             </div>
             <div className="flex py-3 px-4 rounded-lg text-gray-500 font-semibold cursor-pointer">
-                <span>All categorie</span>
+                <span>All categories</span>
 
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
@@ -49,7 +49,7 @@ const MangaList = () => {
             <div className="basis-full">
                 <div className="z-50 space-y-8 rounded-3xl bg-white p-8">
                     {
-                        loading || data?.length < 1 ? 
+                        loading || !data ? 
                         <>
                             <p className="text-3xl font-bold text-gray-700 antialiased">Please Search Something</p>
                             <div className="flex justify-center">
@@ -58,7 +58,7 @@ const MangaList = () => {
                             </div> 
                         </>: 
                         <>
-                            <p className="text-3xl font-bold text-gray-700 antialiased">Manga List</p>
+                            <p className="text-3xl font-bold text-gray-700 antialiased">Manga List Search Results</p>
                             <div className="grid xl:grid-cols-6 md:grid-cols-4 gap-2 sm:grid-cols-3 grid-cols-2">
                                 {data?.map((value, index)=>{
                                     return (<Link key={index} to={`/manga/info/${value.id}`} style={{background:`url(${value.image}) no-repeat center center`,backgroundSize:`cover`}} className="flex aspect-[2/3] h-56 cursor-pointer flex-col rounded-3xl bg-cover transition hover:scale-105 hover:saturate-150 lg:h-72">

@@ -22,7 +22,7 @@ const LatestEpisodes = ({data, paging, setPaging}) =>{
                         })}  
                     </div>
                     {/* pagging */}
-                    <div className="flex text-gray-700">
+                    <div className="flex justify-center text-gray-700">
                         {
                             paging.currentPage < 2 ? <></> : <div className="h-12 w-12 mr-1 flex justify-center items-center rounded-full bg-gray-200 cursor-pointer">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-left w-6 h-6">
