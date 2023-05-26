@@ -13,6 +13,8 @@ import LightNovelList from '../pages/LightNovel/List/index';
 import LightNovelInfo from '../pages/LightNovel/Info/index';
 import LightNovelRead from '../pages/LightNovel/Read/index';
 
+import APISetting from '../pages/Settings/APISetting/index'
+
 import NotFound from '../pages/NotFound';
 
 
@@ -36,6 +38,7 @@ export default function RouterApp() {
                 <Route path="info/:id" element={<LightNovelInfo />} />
                 <Route path="read" element={<LightNovelRead />} />
             </Route>
+            <Route path="setting/apisetting" element={<APISetting />} />
             <Route path="*" element={<NotFound/>}/>
         </Routes>
     </Router>

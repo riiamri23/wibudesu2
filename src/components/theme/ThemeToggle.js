@@ -2,7 +2,7 @@ import React from 'react';
 import { FaSun, FaMoon} from "react-icons/fa";
 import { ThemeContext } from '../../context/ThemeContext';
 
-const Toggle = () => {
+const ToggleDarkLight = () => {
     const { theme, setTheme } = React.useContext(ThemeContext);
 
     return (
@@ -22,4 +22,4 @@ const Toggle = () => {
     );
 };
 
-export default Toggle;
+export default ToggleDarkLight;
