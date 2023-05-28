@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 const LatestEpisodes = ({data, paging, setPaging}) =>{
     // const [paging, setPaging] = useState();
+    // console.log(data);
     const pagingNumber = 5;
     return (
         <div className="flex-row space-x-4 flex my-3">
@@ -11,7 +12,8 @@ const LatestEpisodes = ({data, paging, setPaging}) =>{
                     <p className="text-3xl font-bold text-gray-700 antialiased">Latest Episodes</p>
                     <div className="grid xl:grid-cols-6 md:grid-cols-4 gap-2 sm:grid-cols-3 grid-cols-2">
                         {data.map((value, index)=>{
-                            return (<Link key={index} to={`/watch/${value.episodeId}`} style={{backgroundImage:`url(${value.image})`,backgroundRepeat: 'no-repeat',backgroundPosition: 'center center', backgroundSize:`cover`}} className="flex aspect-[2/3] h-56 cursor-pointer flex-col rounded-3xl bg-cover transition hover:scale-105 hover:saturate-150 lg:h-72">
+                            console.log(value);
+                            return (<Link key={index} to={`/infonew/${value.id}`} style={{backgroundImage:`url(${value.image})`,backgroundRepeat: 'no-repeat',backgroundPosition: 'center center', backgroundSize:`cover`}} className="flex aspect-[2/3] h-56 cursor-pointer flex-col rounded-3xl bg-cover transition hover:scale-105 hover:saturate-150 lg:h-72">
                             <div className="grow p-4">
                                 <div className="w-min rounded-full bg-indigo-500 py-1 px-5 text-white">ep.{value.episodeNumber}</div>
                             </div>

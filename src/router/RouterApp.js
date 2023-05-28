@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from '../pages/Anime/Home/Index';
 import Info from '../pages/Anime/Info/Index';
+import InfoNew from '../pages/Anime/InfoNew/Index';
 import Watch from '../pages/Anime/Watch/Index';
 
 import Manga from '../pages/Manga/index';
@@ -27,6 +28,7 @@ export default function RouterApp() {
             <Route index element={<Home />} />
             <Route path="info/:name" element={<Info />} />
             <Route path="watch/:name" element={<Watch />} />
+            <Route path="infonew/:name" element={<InfoNew />} />
             <Route path="manga" element={<Manga />} >
                 {/* <Route path=":id"> */}
                     <Route index element={<MangaList />}  />
