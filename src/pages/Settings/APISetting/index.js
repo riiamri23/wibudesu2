@@ -3,7 +3,7 @@ import React from 'react';
 import Navbar from '../../../components/navbar/Index';
 import { Outlet } from "react-router-dom";
 
-const Manga = () => {
+const ApiSetting = () => {
 
     return (<>
         <Navbar />
@@ -13,4 +13,4 @@ const Manga = () => {
         </>);
 }
 
-export default Manga;
+export default ApiSetting;
