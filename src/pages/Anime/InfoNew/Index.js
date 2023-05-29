@@ -25,12 +25,14 @@ const InfoNew = () => {
                 const paramSplit = params?.name?.split("%");
     
                 const responseInfo = await getAnimeInfo(paramSplit[0]);
-                const epsSelected = responseInfo?.episodes?.[paramSplit[1] ? paramSplit[1]-1 : responseInfo.episodes.length-1]?.id;
+                const indexEps = paramSplit[1] ? paramSplit[1] : responseInfo.episodes.length;
+                const epsSelected = responseInfo?.episodes?.[indexEps-1]?.id;
     
                 const responseWatch = await getAnimeWatch(epsSelected);
-                setCurrentEps(epsSelected);
+                setCurrentEps(indexEps);
                 setInfo(responseInfo);
                 setWatch(responseWatch);
+                console.log(responseWatch);
 
             }catch(e){
                 console.log(e);
@@ -51,16 +53,22 @@ const InfoNew = () => {
                         <div className="space-y-8 rounded-xl bg-white p-5 my-2">
                             <div>{`${info?.title} - Eps ${currentEps}`}</div>
                             <div className="flex space-x-4 h-[36rem]">
-                                <div id="video-player" className="w-full md:w-3/4 aspect-w-16">
-                                    <iframe
-                                    className="m-x-auto overflow-hidden h-[32rem]"
-                                    title="video player"
-                                    src={watch?.headers?.Referer}
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                    mozallowfullscreen="true"
-                                    webkitallowfullscreen="true"
-                                    />
+                                <div className="md:w-3/4">
+                                    <div id="video-player" className="block w-full h-[32rem] aspect-w-16">
+                                        <iframe
+                                        className="m-x-auto overflow-hidden h-[32rem]"
+                                        title="video player"
+                                        src={watch?.headers?.Referer}
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                        mozallowfullscreen="true"
+                                        webkitallowfullscreen="true"
+                                        />
+                                    </div>
+                                    <a href={watch?.download} target="_blank" rel="noreferrer" className="bg-blue-300 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded inline-flex items-center">
+                                        <svg className="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+                                        <span>Download</span>
+                                    </a>
                                 </div>
                                 <ListEps name={info?.id} episodes={info?.episodes} />
                             </div>
