@@ -51,7 +51,7 @@ const Navbar = () => {
                         Light Novel
                     </Link>
 
-                    <a className="flex text-gray-600 hover:text-blue-500
+                    {/* <a className="flex text-gray-600 hover:text-blue-500
                         cursor-pointer transition-colors duration-300" href="/">
                         Wibunews
                     </a>
@@ -59,7 +59,7 @@ const Navbar = () => {
                     <a className="flex text-gray-600 hover:text-blue-500
                         cursor-pointer transition-colors duration-300" href="/">
                         Help
-                    </a>
+                    </a> */}
                 </div>
 
                 <div className="flex items-center space-x-5">
@@ -74,7 +74,7 @@ const Navbar = () => {
                         Login
                     </a> */}
                     <ToggleDarkLight />
-                    <FaUser className="text-gray-500 dark:text-gray-400 text-2xl cursor-pointer" onClick={handleDropDown}/>
+                    {/* <FaUser className="text-gray-500 dark:text-gray-400 text-2xl cursor-pointer" onClick={handleDropDown}/>
 
                     <div className={ (dropDownUser ? "" : "hidden" ) + " absolute right-10 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none top-12"} role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1">
                         <div className="py-1" role="none">
@@ -83,7 +83,7 @@ const Navbar = () => {
                             <button type="submit" className="text-gray-700 block w-full px-4 py-2 text-left text-sm" role="menuitem" tabIndex="-1" id="menu-item-3">Sign out</button>
                         </form>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="md:hidden flex items-center">
                         <button className="outline-none mobile-menu-button" onClick={handleToggle}>
                             <svg
