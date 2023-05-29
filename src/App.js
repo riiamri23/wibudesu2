@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 // import PokemonListing from './pages/pokemon/PokemonListing';
 import RouterApp from './router/RouterApp';
 
 function App() {
   useEffect(() => {
+    document.title = 'Wibudesu';
+
     document.body.classList.add('bg-slate-100');
     document.body.classList.add('dark:bg-current');
     document.body.classList.add('transition-colors');
