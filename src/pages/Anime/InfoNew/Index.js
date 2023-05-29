@@ -38,7 +38,7 @@ const InfoNew = () => {
                         {/* Watch */}
                         <div className="space-y-8 rounded-xl bg-white p-5 my-2">
                             <div>{`${info?.title} - Eps ${info?.episodes?.length-1}`}</div>
-                            <div className="flex space-x-4 max-h-screen">
+                            <div className="flex space-x-4 h-[36rem]">
                                 <div id="video-player" className="w-3/4 flex aspect-w-16">
                                     <iframe
                                     className="m-auto overflow-y-hidden"
