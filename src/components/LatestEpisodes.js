@@ -12,13 +12,13 @@ const LatestEpisodes = ({data, paging, setPaging}) =>{
                     <p className="text-3xl font-bold text-gray-700 antialiased">Latest Episodes</p>
                     <div className="grid xl:grid-cols-6 md:grid-cols-4 gap-2 sm:grid-cols-3 grid-cols-2">
                         {data.map((value, index)=>{
-                            console.log(value);
-                            return (<Link key={index} to={`/infonew/${value.id}`} style={{backgroundImage:`url(${value.image})`,backgroundRepeat: 'no-repeat',backgroundPosition: 'center center', backgroundSize:`cover`}} className="flex aspect-[2/3] h-56 cursor-pointer flex-col rounded-3xl bg-cover transition hover:scale-105 hover:saturate-150 lg:h-72">
+                            // console.log(value);
+                            return (<Link key={index} to={`/infonew/${value?.id}%${value?.episodeNumber}`} style={{backgroundImage:`url(${value?.image})`,backgroundRepeat: 'no-repeat',backgroundPosition: 'center center', backgroundSize:`cover`}} className="flex aspect-[2/3] h-56 cursor-pointer flex-col rounded-3xl bg-cover transition hover:scale-105 hover:saturate-150 lg:h-72">
                             <div className="grow p-4">
                                 <div className="w-min rounded-full bg-indigo-500 py-1 px-5 text-white">ep.{value.episodeNumber}</div>
                             </div>
                             <div className="text-md w-full rounded-b-3xl bg-black/70 py-4 px-2 text-center font-medium text-white backdrop-opacity-50">
-                                <span className="line-clamp-2">{value.title}</span>
+                                <span className="line-clamp-2">{value?.title}</span>
                             </div>
                         </Link>);
                         })}  
@@ -26,7 +26,7 @@ const LatestEpisodes = ({data, paging, setPaging}) =>{
                     {/* pagging */}
                     <div className="flex justify-center text-gray-700">
                         {
-                            paging.currentPage < 2 ? <></> : <div className="h-12 w-12 mr-1 flex justify-center items-center rounded-full bg-gray-200 cursor-pointer">
+                            paging?.currentPage < 2 ? <></> : <div className="h-12 w-12 mr-1 flex justify-center items-center rounded-full bg-gray-200 cursor-pointer">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-left w-6 h-6">
                                     <polyline points="15 18 9 12 15 6"></polyline>
                                 </svg>
