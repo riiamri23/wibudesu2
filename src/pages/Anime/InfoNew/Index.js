@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getAnimeInfo, getAnimeWatch } from "../../../services/AnimeService";
 import { Link, useParams } from "react-router-dom";
 import Navbar from '../../../components/navbar/Index';
-import InfoAnime from '../../../components/InfoAnime';
+import InfoAnime from '../../../components/anime/InfoAnime';
 
 
 const ListEps = ({name,episodes})=>(<div className="w-full md:w-1/4 overflow-y-auto" >

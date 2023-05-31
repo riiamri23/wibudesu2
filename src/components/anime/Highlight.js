@@ -23,7 +23,7 @@ const Highlight = ({data}) =>{
         <div style={{boxShadow: "black 0px 0px 13em 3em inset", backgroundImage: `url(${data[index].image})`}} className="flex h-80 w-full flex-row items-end rounded-3xl bg-cover bg-center transition-all duration-500 ease-in-out md:h-72 lg:h-80 my-4">
             <div className="space-y-6 p-12">
                 <p className="text-3xl font-bold text-white antialiased drop-shadow-2xl lg:text-4xl">{data[index].title}</p>
-                <Link to={`/info/${data[index]?.id}`} className="flex w-min cursor-pointer flex-row items-center space-x-2 rounded-full bg-teal-400 px-6 py-2 text-lg font-semibold text-white shadow-lg shadow-teal-500 transition hover:scale-105 hover:bg-teal-500 hover:shadow-teal-600">
+                <Link to={`/infonew/${data[index]?.id}`} className="flex w-min cursor-pointer flex-row items-center space-x-2 rounded-full bg-teal-400 px-6 py-2 text-lg font-semibold text-white shadow-lg shadow-teal-500 transition hover:scale-105 hover:bg-teal-500 hover:shadow-teal-600">
                     <span>Watch</span>
                     <svg stroke="currentColor" fill="white" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                 </Link>

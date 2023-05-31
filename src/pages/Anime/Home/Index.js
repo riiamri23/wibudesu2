@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {getAnimeTopAiring, getLatestUpdate} from '../../../services/AnimeService';
-import Highlight from '../../../components/Highlight';
-import LatestEpisodes from '../../../components/LatestEpisodes';
+import Highlight from '../../../components/anime/Highlight';
+import LatestEpisodes from '../../../components/anime/LatestEpisodes';
 import Navbar from '../../../components/navbar/Index';
 
 const Home = () => {
@@ -32,10 +32,19 @@ const Home = () => {
         <>
             <Navbar />
             <div className="container m-auto">
-                {/* TOP AIRING */}
-                { topAiring.length > 0 ? <Highlight data={topAiring} /> : <>Loading..</>}
-                {/* LATEST EPISODES */}
-                {latestUpdate.length > 0 ? <LatestEpisodes data={latestUpdate} paging={paging} setPaging={setPaging} /> : <>Loading..</>}
+                {
+                    topAiring.length > 0 && latestUpdate.length > 0 
+                        ? <>
+                            {/* TOP AIRING */}
+                            <Highlight data={topAiring} /> 
+                            {/* LATEST EPISODES */}
+                            <LatestEpisodes data={latestUpdate} paging={paging} setPaging={setPaging} />
+                        </> 
+                        : <div className="flex justify-center align-middle">
+                            <img src="/assets/gif/kohaku-tsukihime.gif" alt="sleepy" width="240px" />
+                        </div>
+                }
+                
             </div>
         </>
         

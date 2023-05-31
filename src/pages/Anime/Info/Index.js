@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getAnimeInfo } from "../../../services/AnimeService";
 import { Link, useParams } from "react-router-dom";
 import Navbar from '../../../components/navbar/Index';
-import InfoAnime from '../../../components/InfoAnime';
+import InfoAnime from '../../../components/anime/InfoAnime';
 
 
 const ListEps = ({episodes})=>(<div className="grid grid-cols-6 items-end gap-y-4 sm:grid-cols-10 md:grid-cols-7 lg:grid-cols-10 xl:grid-cols-12 2xl:grid-cols-10 3xlc:grid-cols-12 react-tabs__tab-panel--selected" role="tabpanel" id="react-tabs-3" aria-labelledby="react-tabs-2">
