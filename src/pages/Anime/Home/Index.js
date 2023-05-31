@@ -41,7 +41,7 @@ const Home = () => {
                             <LatestEpisodes data={latestUpdate} paging={paging} setPaging={setPaging} />
                         </> 
                         : <div className="flex justify-center align-middle">
-                            <img src="/assets/gif/kohaku-tsukihime.gif" alt="sleepy" width="240px" />
+                            <img src="/assets/gif/kohaku-tsukihime.gif" alt="sleepy" width="180px" />
                         </div>
                 }
                 
