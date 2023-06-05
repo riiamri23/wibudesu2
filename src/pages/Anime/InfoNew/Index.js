@@ -52,9 +52,9 @@ const InfoNew = () => {
                         {/* Watch */}
                         <div className="space-y-8 rounded-xl bg-white p-5 my-2">
                             <div>{`${info?.title} - Eps ${currentEps}`}</div>
-                            <div className="flex space-x-4 lg:w-[calc(100%-300px)]">
-                                <div className="w-full bg-[#111] aspect-video flex items-center justify-center">
-                                    <div id="video-player" className="w-full h-full">
+                            <div className="flex space-x-4">
+                                <div className="w-full lg:h-[35rem] md:h-[20rem] bg-[#111]">
+                                    <div id="video-player" className="w-full h-full flex items-center justify-center">
                                         <iframe
                                         className="m-x-auto overflow-hidden w-full h-full"
                                         title="video player"
