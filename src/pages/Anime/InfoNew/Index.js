@@ -52,31 +52,29 @@ const InfoNew = () => {
                         {/* Watch */}
                         <div className="space-y-8 rounded-xl bg-white p-5 my-2">
                             <div>{`${info?.title} - Eps ${currentEps}`}</div>
-                            <div>
-                                <div className="flex space-x-4">
-                                    <div className="md:w-3/4 z-[9999] aspect-video">
-                                        <div id="video-player" className=" w-full h-full ">
-                                            <iframe
-                                            className="m-x-auto overflow-hidden w-full h-full"
-                                            title="video player"
-                                            src={watch?.headers?.Referer}
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen
-                                            mozallowfullscreen="true"
-                                            webkitallowfullscreen="true"
-                                            />
-                                        </div>
+                            <div className="flex space-x-4 lg:w-[calc(100%-300px)]">
+                                <div className="w-full bg-[#111] aspect-video flex items-center justify-center">
+                                    <div id="video-player" className="w-full h-full">
+                                        <iframe
+                                        className="m-x-auto overflow-hidden w-full h-full"
+                                        title="video player"
+                                        src={watch?.headers?.Referer}
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                        mozallowfullscreen="true"
+                                        webkitallowfullscreen="true"
+                                        />
                                     </div>
-                                    <ListEps name={info?.id} episodes={info?.episodes} />
                                 </div>
-
-                                <a href={watch?.download} target="_blank" rel="noreferrer" className="bg-blue-300 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded inline-flex">
-                                    <svg className="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
-                                    <span>Download</span>
-                                </a>
+                                <ListEps name={info?.id} episodes={info?.episodes} />
                             </div>
-                            
+
+                            <a href={watch?.download} target="_blank" rel="noreferrer" className="bg-blue-300 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded inline-flex">
+                                <svg className="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+                                <span>Download</span>
+                            </a>
                         </div>
+                        
                         <InfoAnime data={info} />
                     </>
                 ) : <div className="flex justify-center align-middle">
