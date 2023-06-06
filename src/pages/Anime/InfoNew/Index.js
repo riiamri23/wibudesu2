@@ -5,7 +5,7 @@ import Navbar from '../../../components/navbar/Index';
 import InfoAnime from '../../../components/anime/InfoAnime';
 
 
-const ListEps = ({name,episodes})=>(<div className="w-full md:w-1/4 overflow-y-auto" >
+const ListEps = ({name,episodes})=>(<div className="w-full md:w-1/4 h-[18rem] lg:h-[35rem] md:h-[20rem] overflow-y-auto" >
         {
             episodes.reverse().map((value)=>( <Link key={value?.number} to={`/infonew/${name}%${value?.number}`} className="block w-full cursor-pointer rounded-xl bg-teal-500 p-1 my-1 text-center font-semibold text-white transition hover:scale-105 hover:bg-teal-600">{`Episode - ${value?.number}`}</Link>))
         }
@@ -52,8 +52,8 @@ const InfoNew = () => {
                         {/* Watch */}
                         <div className="space-y-8 rounded-xl bg-white p-5 my-2">
                             <div>{`${info?.title} - Eps ${currentEps}`}</div>
-                            <div className="flex space-x-4">
-                                <div className="w-full lg:h-[35rem] md:h-[20rem] bg-[#111]">
+                            <div className="md:flex space-x-4">
+                                <div className="w-full h-[18rem] lg:h-[35rem] md:h-[20rem] bg-[#111]">
                                     <div id="video-player" className="w-full h-full flex items-center justify-center">
                                         <iframe
                                         className="m-x-auto overflow-hidden w-full h-full"
