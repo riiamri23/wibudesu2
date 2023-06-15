@@ -32,7 +32,6 @@ const InfoNew = () => {
                 setCurrentEps(indexEps);
                 setInfo(responseInfo);
                 setWatch(responseWatch);
-                console.log(responseWatch);
 
             }catch(e){
                 console.log(e);
