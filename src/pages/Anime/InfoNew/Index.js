@@ -7,7 +7,7 @@ import InfoAnime from '../../../components/anime/InfoAnime';
 
 const ListEps = ({name,episodes})=>(<div className="w-full md:w-1/4 h-[18rem] lg:h-[35rem] md:h-[20rem] overflow-y-auto" >
         {
-            episodes.reverse().map((value)=>( <Link key={value?.number} to={`/infonew/${name}%${value?.number}`} className="block w-full cursor-pointer rounded-xl bg-teal-500 p-1 my-1 text-center font-semibold text-white transition hover:scale-105 hover:bg-teal-600">{`Episode - ${value?.number}`}</Link>))
+            episodes.reverse().map((value)=>( <Link key={value?.number} to={`/infonew/${name}_${value?.number}`} className="block w-full cursor-pointer rounded-xl bg-teal-500 p-1 my-1 text-center font-semibold text-white transition hover:scale-105 hover:bg-teal-600">{`Episode - ${value?.number}`}</Link>))
         }
     </div>);
 
@@ -22,10 +22,11 @@ const InfoNew = () => {
         const fetchInfoAndWatch = async () =>{
             setLoading(true);
             try{
-                const paramSplit = params?.name?.split("%");
+                const paramSplit = params?.name?.split("_");
     
                 const responseInfo = await getAnimeInfo(paramSplit[0]);
                 const indexEps = paramSplit[1] ? paramSplit[1] : responseInfo.episodes.length;
+                console.log(params, paramSplit, "param");
                 const epsSelected = responseInfo?.episodes?.[indexEps-1]?.id;
     
                 const responseWatch = await getAnimeWatch(epsSelected);
