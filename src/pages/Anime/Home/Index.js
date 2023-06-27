@@ -33,20 +33,19 @@ const Home = () => {
         <>
             <Navbar />
             <div className="container m-auto">
-                <div className="flex space-x-4 justify-center align-middle">
+                <div className="flex flex-col lg:flex-row lg:space-x-4 justify-center align-middle mx-2">
                     {
                         topAiring.length > 0 && latestUpdate.length > 0 
                             ? <>
 
-                                <div className="w-3/4">
+                                <div className="lg:w-3/4 w-full">
                                     {/* TOP AIRING */}
                                     <Highlight data={topAiring} /> 
                                     {/* LATEST EPISODES */}
                                     <LatestEpisodes data={latestUpdate} paging={paging} setPaging={setPaging} />
-                                        
                                 </div>
 
-                                <div className="w-1/4 bg-white rounded-3xl m-3">
+                                <div className="lg:w-1/4 w-full bg-white rounded-3xl m-3">
                                     <div className="space-y-2">
                                         <h1 className="p-2 text-2xl font-bold text-gray-700 antialiased text-center">Mastah Recommendation</h1>
                                         {/* make it static because mastah doesn't have time for make it */}

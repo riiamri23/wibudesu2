@@ -8,7 +8,7 @@ const LatestEpisodes = ({data, paging, setPaging}) =>{
             <div className="basis-full">
                 <div className="z-50 space-y-8 rounded-3xl bg-white p-8">
                     <p className="text-3xl font-bold text-gray-700 antialiased">Latest Episodes</p>
-                    <div className="grid xl:grid-cols-4 md:grid-cols-2 gap-2 sm:grid-cols-3 grid-cols-2">
+                    <div className="grid xl:grid-cols-4 md:grid-cols-3 gap-2 sm:grid-cols-2 grid-cols-2">
                         {data.map((value, index)=>
                             (<Link key={index} to={`/infonew/${value?.id}_${value?.episodeNumber}`} style={{backgroundImage:`url(${value?.image})`,backgroundRepeat: 'no-repeat',backgroundPosition: 'center center', backgroundSize:`cover`}} className="flex aspect-[2/3] h-56 cursor-pointer flex-col rounded-3xl bg-cover transition hover:scale-105 hover:saturate-150 lg:h-72">
                                 <div className="grow p-4">
