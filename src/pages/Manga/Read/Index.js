@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 import Navbar from '../../../components/navbar/Index';
 import { getMangaInfo, getMangaRead } from '../../../services/MangaService';
-import {consumet} from '../../../constants/constants';
+import {imageProxy, imageReferer} from '../../../constants/constants';
 import { FaHamburger, FaWindowClose, FaHome, FaInfo, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 const MangaRead = () => {
@@ -56,7 +56,7 @@ const MangaRead = () => {
                         // const test = await fetchMangaImage();
                         // console.log(test);
                         return <li key={index}>
-                            <img src={`${consumet}/utils/image-proxy?url=${val.img}&referer=https://mangakakalot.com`} alt={val?.id} />
+                            <img src={`${imageProxy}?url=${val.img}&referer=${imageReferer}`} alt={val?.id} />
                         </li>
                     })}
                     </ul>

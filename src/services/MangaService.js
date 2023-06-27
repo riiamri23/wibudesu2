@@ -1,4 +1,4 @@
-import {consumet, consumetProxy} from '../constants/constants';
+import {consumet} from '../constants/constants';
 // import axios from 'axios';
 
 export async function getMangaList({query = ""}){
