@@ -45,7 +45,7 @@ const Home = () => {
                                     <LatestEpisodes data={latestUpdate} paging={paging} setPaging={setPaging} />
                                 </div>
 
-                                <div className="lg:w-1/4 w-full bg-white rounded-3xl m-3">
+                                <div className="lg:w-1/4 w-full bg-white rounded-3xl">
                                     <div className="space-y-2">
                                         <h1 className="p-2 text-2xl font-bold text-gray-700 antialiased text-center">Mastah Recommendation</h1>
                                         {/* make it static because mastah doesn't have time for make it */}
