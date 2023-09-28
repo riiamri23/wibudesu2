@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { AnimeCard } from '../global/AnimeCard';
 
 const LatestEpisodes = ({data, paging, setPaging}) =>{
     const pagingNumber = 5;
@@ -10,14 +11,7 @@ const LatestEpisodes = ({data, paging, setPaging}) =>{
                     <p className="text-3xl font-bold text-gray-700 antialiased">Latest Episodes</p>
                     <div className="grid xl:grid-cols-4 md:grid-cols-3 gap-2 sm:grid-cols-2 grid-cols-2">
                         {data.map((value, index)=>
-                            (<Link key={index} to={`/infonew/${value?.id}_${value?.episodeNumber}`} style={{backgroundImage:`url(${value?.image})`,backgroundRepeat: 'no-repeat',backgroundPosition: 'center center', backgroundSize:`cover`}} className="flex aspect-[2/3] h-56 cursor-pointer flex-col rounded-3xl bg-cover transition hover:scale-105 hover:saturate-150 lg:h-72">
-                                <div className="grow p-4">
-                                    <div className="w-min rounded-full bg-indigo-500 py-1 px-5 text-white">ep.{value.episodeNumber}</div>
-                                </div>
-                                <div className="text-md w-full rounded-b-3xl bg-black/70 py-4 px-2 text-center font-medium text-white backdrop-opacity-50">
-                                    <span className="line-clamp-2">{value?.title}</span>
-                                </div>
-                            </Link>)
+                            < AnimeCard index={index} value={value} />
                         )}  
                     </div>
                     {/* pagging */}
@@ -50,6 +44,17 @@ const LatestEpisodes = ({data, paging, setPaging}) =>{
             </div>
         </div>
     );
+
+    // function AnimeCard(index, value) {
+    //     return <Link key={index} to={`/infonew/${value?.id}_${value?.episodeNumber}`} style={{ backgroundImage: `url(${value?.image})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center center', backgroundSize: `cover` }} className="flex aspect-[2/3] h-56 cursor-pointer flex-col rounded-3xl bg-cover transition hover:scale-105 hover:saturate-150 lg:h-72">
+    //         <div className="grow p-4">
+    //             <div className="w-min rounded-full bg-indigo-500 py-1 px-5 text-white">ep.{value.episodeNumber}</div>
+    //         </div>
+    //         <div className="text-md w-full rounded-b-3xl bg-black/70 py-4 px-2 text-center font-medium text-white backdrop-opacity-50">
+    //             <span className="line-clamp-2">{value?.title}</span>
+    //         </div>
+    //     </Link>;
+    // }
 }
 
 export default LatestEpisodes;

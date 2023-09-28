@@ -8,6 +8,7 @@ const Navbar = () => {
 
     const [activeNav, setActiveNav] = useState(false);
     const params = useParams();
+    const [searchValue, setSearchValue] = useState(params?.query);
     // const [dropDownUser, setDropDownUser] = useState(false);
 
     const handleToggle = () => {
@@ -15,14 +16,14 @@ const Navbar = () => {
     };
 
     const handleSearch = (e) =>{
-
+        setSearchValue(e.target.value);
+        
         const delayDebounceFn = setTimeout(() => {
             if (e.target.value) navigate(`/search/${e.target.value}`); 
-            else navigate(``);
-        }, 1000)
+            else navigate(`/`);
+        }, 800)
     
         return () => clearTimeout(delayDebounceFn)
-        
     }
     
 
@@ -88,7 +89,7 @@ const Navbar = () => {
                             id="search"
                             placeholder="Search something.."
                             onChange={handleSearch}
-                            value={params?.query}
+                            value={searchValue}
                             /> 
                         </div>
                     </div>
