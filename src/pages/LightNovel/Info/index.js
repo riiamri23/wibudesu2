@@ -18,7 +18,7 @@ const LightNovelInfo = () => {
         fetchLightNovelInfo()
     });
 
-    return (<>hello
+    return (<>hello still under construction
         </>);
 }
 

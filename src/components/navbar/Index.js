@@ -1,18 +1,28 @@
 import React, {useState} from "react";
 import ToggleDarkLight from '../theme/ThemeToggle';
-// import { FaSearch } from 'react-icons/fa';
-import { FaUser } from 'react-icons/fa';
-import { Link } from "react-router-dom";
+import { FaSearch } from 'react-icons/fa';
+import { useNavigate, useParams, Link } from "react-router-dom";
 
 const Navbar = () => {
+    const navigate = useNavigate();
+
     const [activeNav, setActiveNav] = useState(false);
-    const [dropDownUser, setDropDownUser] = useState(false);
+    const params = useParams();
+    // const [dropDownUser, setDropDownUser] = useState(false);
 
     const handleToggle = () => {
         setActiveNav(!activeNav);
     };
-    const handleDropDown = () =>{
-        setDropDownUser(!dropDownUser);
+
+    const handleSearch = (e) =>{
+
+        const delayDebounceFn = setTimeout(() => {
+            if (e.target.value) navigate(`/search/${e.target.value}`); 
+            else navigate(``);
+        }, 1000)
+    
+        return () => clearTimeout(delayDebounceFn)
+        
     }
     
 
@@ -64,15 +74,24 @@ const Navbar = () => {
 
                 <div className="flex items-center space-x-5">
                     
-                    {/* <FaSearch
-                        className="text-gray-500 dark:text-gray-400 text-2xl cursor-pointer"
-                    /> */}
-                    {/* <a className="flex text-gray-600 
-                        cursor-pointer transition-colors duration-300
-                        font-semibold hover:text-blue-600" href="/">
+                    <div className='max-w-md mx-auto'>
+                        <div className="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden">
+                            <div className="grid place-items-center h-full w-12 text-gray-300">
+                                <FaSearch
+                                    className="text-gray-500 dark:text-gray-400 text-2xl cursor-pointer h-6 w-6"
+                                />
+                            </div>
 
-                        Login
-                    </a> */}
+                            <input
+                            className="peer h-full w-full outline-none text-sm text-gray-700 pr-2"
+                            type="text"
+                            id="search"
+                            placeholder="Search something.."
+                            onChange={handleSearch}
+                            value={params?.query}
+                            /> 
+                        </div>
+                    </div>
                     <ToggleDarkLight />
                     {/* <FaUser className="text-gray-500 dark:text-gray-400 text-2xl cursor-pointer" onClick={handleDropDown}/>
 

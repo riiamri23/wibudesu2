@@ -14,6 +14,8 @@ import LightNovelList from '../pages/LightNovel/List/index';
 import LightNovelInfo from '../pages/LightNovel/Info/index';
 import LightNovelRead from '../pages/LightNovel/Read/index';
 
+import Search from '../pages/Search/index';
+
 import ApiSetting from '../pages/Settings/APISetting/index';
 import SettingApiForm from '../pages/Settings/APISetting/Form/index';
 
@@ -41,6 +43,7 @@ export default function RouterApp() {
                 <Route path="info/:id" element={<LightNovelInfo />} />
                 <Route path="read" element={<LightNovelRead />} />
             </Route>
+            <Route path="search/:query" element={<Search />} />
             <Route path="setting/apisetting" element={<ApiSetting />} >
                 <Route index element={<SettingApiForm />}  />
             </Route>
