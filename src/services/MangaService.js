@@ -3,7 +3,7 @@ import {consumet} from '../constants/constants';
 
 export async function getMangaList({query = ""}){
     try{
-        const response = await fetch(`${consumet}/manga/mangakakalot/${query}`);
+        const response = await fetch(`${consumet}manga/mangakakalot/${query}`);
         return await response.json();
     }catch(e){
         return e;
@@ -12,7 +12,7 @@ export async function getMangaList({query = ""}){
 
 export async function getMangaInfo(id){
     try{
-        const response = await fetch(`${consumet}/manga/mangakakalot/info?id=${id}`);
+        const response = await fetch(`${consumet}manga/mangakakalot/info?id=${id}`);
 
         return await response.json();
     }catch(e){
