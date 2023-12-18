@@ -22,7 +22,7 @@ export async function getMangaInfo(id){
 
 export async function getMangaRead(id){
     try{
-        const response = await fetch(`${consumet}/manga/mangakakalot/read?chapterId=${id}`);
+        const response = await fetch(`${consumet}manga/mangakakalot/read?chapterId=${id}`);
 
         return await response.json();
     }catch(e){
