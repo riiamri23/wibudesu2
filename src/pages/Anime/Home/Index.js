@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {getAnimeTopAiring, getLatestUpdate} from '../../../services/AnimeService';
 import Highlight from '../../../components/anime/Highlight';
-import LatestEpisodes from '../../../components/anime/LatestEpisodes';
+import WDList from '../../../components/global/wdlist/WDList.js';
 import Navbar from '../../../components/navbar/Index';
+import {mastahRecomendation} from '../../../constants/constants'
 
 const Home = () => {
     const [topAiring, setTopAiring] = useState([]);
@@ -42,7 +43,7 @@ const Home = () => {
                                     {/* TOP AIRING */}
                                     <Highlight data={topAiring} /> 
                                     {/* LATEST EPISODES */}
-                                    <LatestEpisodes data={latestUpdate} paging={paging} setPaging={setPaging} />
+                                    <WDList data={latestUpdate} paging={paging} setPaging={setPaging} />
                                 </div>
 
                                 <div className="lg:w-1/4 w-full bg-white rounded-3xl">
@@ -50,8 +51,8 @@ const Home = () => {
                                         <h1 className="p-2 text-2xl font-bold text-gray-700 antialiased text-center">Mastah Recommendation</h1>
                                         {/* make it static because mastah doesn't have time for make it */}
                                         <div className="flex flex-col">
-                                            <Link to={`/infonew/kimetsu-no-yaiba-katanakaji-no-sato-hen`} className="w-full flex items-center space-x-2 px-2 hover:bg-gray-300 py-4">
-                                                <div className="text-xl font-bold">{/* number */}
+                                            {/* <Link to={`/infonew/kimetsu-no-yaiba-katanakaji-no-sato-hen`} className="w-full flex items-center space-x-2 px-2 hover:bg-gray-300 py-4">
+                                                <div className="text-xl font-bold">
                                                     1
                                                 </div>
                                                 <picture className="w-1/4 rounded-lg">
@@ -63,7 +64,7 @@ const Home = () => {
                                                 </div>
                                             </Link>
                                             <Link to={`/infonew/jigokuraku`} className="w-full flex items-center space-x-2 px-2 hover:bg-gray-300 py-4">
-                                                <div className="text-xl font-bold">{/* number */}
+                                                <div className="text-xl font-bold">
                                                     2
                                                 </div>
                                                 <picture className="w-1/4 rounded-lg">
@@ -75,7 +76,7 @@ const Home = () => {
                                                 </div>
                                             </Link>
                                             <Link to={`/infonew/oshi-no-ko`} className="w-full flex items-center space-x-2 px-2 hover:bg-gray-300 py-4">
-                                                <div className="text-xl font-bold">{/* number */}
+                                                <div className="text-xl font-bold">
                                                     3
                                                 </div>
                                                 <picture className="w-1/4 rounded-lg">
@@ -87,7 +88,7 @@ const Home = () => {
                                                 </div>
                                             </Link>
                                             <Link to={`/infonew/maou-gakuin-no-futekigousha-shijou-saikyou-no-maou-no-shiso-tensei-shite-shison-tachi-no-gakkou-e-kayou-2nd-season-part-2`} className="w-full flex items-center space-x-2 px-2 hover:bg-gray-300 py-4">
-                                                <div className="text-xl font-bold">{/* number */}
+                                                <div className="text-xl font-bold">
                                                     4
                                                 </div>
                                                 <picture className="w-1/4 rounded-lg">
@@ -99,7 +100,7 @@ const Home = () => {
                                                 </div>
                                             </Link>
                                             <Link to={`/infonew/mashle`} className="w-full flex items-center space-x-2 px-2 hover:bg-gray-300 py-4">
-                                                <div className="text-xl font-bold">{/* number */}
+                                                <div className="text-xl font-bold">
                                                     5
                                                 </div>
                                                 <picture className="w-1/4 rounded-lg">
@@ -109,7 +110,24 @@ const Home = () => {
                                                     <h2 className="text-md font-bold">Mashle</h2>
                                                     <p className="text-sm">Action, Comedy, Fantasy, Gag Humor, Parody, School, Shounen</p>
                                                 </div>
-                                            </Link>
+                                            </Link> */}
+                                            {mastahRecomendation?.length > 0 ? 
+                                                mastahRecomendation?.map((val, index)=>{
+                                                    return (<Link to={val?.pageLink} className="w-full flex items-center space-x-2 px-2 hover:bg-gray-300 py-4">
+                                                    <div className="text-xl font-bold">
+                                                            {index+1}
+                                                        </div>
+                                                        <picture className="w-1/4 rounded-lg">
+                                                            <img className="rounded-lg" src={val?.coverLink} alt="gambar" />
+                                                        </picture>
+                                                        <div className="w-3/4">
+                                                            <h2 className="text-md font-bold">{val?.name}</h2>
+                                                            <p className="text-sm">{val?.genre}</p>
+                                                        </div>
+                                                    </Link>);
+                                                })
+                                            
+                                            : <></>}
 
                                         </div>
                                     </div>

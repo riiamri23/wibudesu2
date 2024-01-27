@@ -1,7 +1,8 @@
 import React from 'react';
-import { WDCard } from '../global/WDCard';
+// import { Link } from "react-router-dom";
+import { WDCard } from './WDCard';
 
-const LatestEpisodes = ({data, paging, setPaging}) =>{
+const WDList = ({data, paging, setPaging}) =>{
     const pagingNumber = 5;
     return (
         <div className="flex-row space-x-4 flex my-3">
@@ -56,4 +57,4 @@ const LatestEpisodes = ({data, paging, setPaging}) =>{
     // }
 }
 
-export default LatestEpisodes;
+export default WDList;
