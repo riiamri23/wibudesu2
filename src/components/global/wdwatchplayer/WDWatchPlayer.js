@@ -1,12 +1,4 @@
-
-import { Link } from "react-router-dom";
-
-
-const ListEps = ({name,episodes})=>(<div className="w-full md:w-1/4 h-[18rem] lg:h-[35rem] md:h-[20rem] overflow-y-auto" >
-        {
-            episodes.reverse().map((value)=>( <Link key={value?.number} to={`/infonew/${name}_${value?.number}`} className="block w-full cursor-pointer rounded-xl bg-teal-500 p-1 my-1 text-center font-semibold text-white transition hover:scale-105 hover:bg-teal-600">{`Episode - ${value?.number}`}</Link>))
-        }
-    </div>);
+import WDListEps from "./WDListEps";
 
 const WDWatchPlayer = ({currentEps, info, watch}) =>{
     return (
@@ -26,7 +18,7 @@ const WDWatchPlayer = ({currentEps, info, watch}) =>{
                         />
                     </div>
                 </div>
-                <ListEps name={info?.id} episodes={info?.episodes} />
+                <WDListEps name={info?.id} episodes={info?.episodes} />
             </div>
 
             <a href={watch?.download} target="_blank" rel="noreferrer" className="bg-blue-300 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded inline-flex">
