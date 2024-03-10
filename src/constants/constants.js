@@ -1,9 +1,9 @@
 
 
-export const consumet = "https://consumet-anime-riiamri23.vercel.app/";
-export const consumetProxy = "https://cors.proxy.consumet.org/";
-export const imageProxy = "https://m3u8proxy.leriotv.workers.dev/";
-export const imageReferer = "https://mangakakalot.com/";
+export const consumetURL = process.env.REACT_APP_API_BASE_URL;
+export const consumetProxy = process.env.REACT_APP_PROXY_BASE_URL;
+export const imageProxy = process.env.REACT_APP_IMAGE_BASE_URL;
+export const imageReferer = process.env.REACT_APP_IMGREF_BASE_URL;
 
 export const mastahRecomendation = [
     {
